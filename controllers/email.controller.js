@@ -5,7 +5,7 @@ exports.sendEmail = async function sendEmail(req, res) {
     name, email, subject, message,
   } = req.body;
   try {
-    const respose = await emailServices.sendEmail(name, email, subject, message);
+    const respose = await emailServices.sendEmail(name, email, 'test', 'test');
 
     if (!respose) return res.status(500).json({ message: 'Error sending email' });
 

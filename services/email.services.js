@@ -1,8 +1,6 @@
 const axios = require('axios');
 const keys = require('../config/keys');
 
-console.log(keys);
-
 exports.sendEmail = async function sendEmail(name, email, subject, message) {
   try {
     const tenantID = keys.exchange.tenantId; // Get from Azure App Registration
