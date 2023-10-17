@@ -5,10 +5,14 @@ const dotenv = require('dotenv');
 dotenv.config();
 const port = process.env.PORT;
 const server = express();
+const fileUpload = require('express-fileupload');
 const landing = require('./routes/landing');
 
 server.use(express.json()); // Used to parse JSON bodies
 server.use(express.urlencoded({ extended: true }));
+server.use(fileUpload({
+  limits: { fileSize: 50 * 1024 * 1024 },
+}));
 server.enable('trust proxy');
 server.set('view engine', 'ejs');
 server.use(morgan('dev'));
@@ -17,6 +21,7 @@ server.use(morgan('dev'));
 // Otherwise you will see the deseriaze user request fires multiple times
 server.use(express.static(`${__dirname}/public`));
 server.use(express.static(`${__dirname}/public/src`));
+server.use(express.static(`${__dirname}/public/assets`));
 
 server.use(landing);
 server.listen(port, () => {

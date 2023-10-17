@@ -1,11 +1,11 @@
 const emailServices = require('../services/email.services');
 
-exports.sendEmail = async function sendEmail(req, res) {
+exports.sendEmail = async (req, res) => {
   const {
     name, email, subject, message,
   } = req.body;
   try {
-    const respose = await emailServices.sendEmail(name, email, 'test', 'test');
+    const respose = await emailServices.sendEmail(name, email, subject, message);
 
     if (!respose) return res.status(500).json({ message: 'Error sending email' });
 
