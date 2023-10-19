@@ -13,7 +13,7 @@ exports.sendEmail = async function sendEmail(name, email, subject, message) {
 
     const toRecipientsArray = [];
 
-    toRecipientsArray.push({ emailAddress: { address: sendToEmail.trim() } });
+    toRecipientsArray.push({ emailAddress: { address: sendToEmail } });
 
     oAuthToken = await axios({ // Get OAuth token to connect as OAuth client
       method: 'post',
@@ -34,21 +34,28 @@ exports.sendEmail = async function sendEmail(name, email, subject, message) {
         subject,
         body: {
           contentType: 'HTML',
-          content: message,
+          content: `Email: ${email}, Name: ${name}, ${message}`,
         },
         toRecipients: toRecipientsArray,
       },
     };
 
-    await axios({ // Send email using Microsoft Graph
+    console.log(msgPayload);
+
+    const axiosConfig = { // Send email using Microsoft Graph
       method: 'post',
-      url: `https://graph.microsoft.com/v1.0/${userFrom}/sendMail`,
-      data: msgPayload,
+      url: `https://graph.microsoft.com/v1.0/users/${userFrom}/sendMail`,
+
       headers: {
         Authorization: `Bearer ${oAuthToken}`,
         'Content-Type': 'application/json',
       },
-    });
+      data: msgPayload,
+    };
+
+    console.log(axiosConfig);
+
+    await axios(axiosConfig);
 
     console.log('Email sent');
     return true;

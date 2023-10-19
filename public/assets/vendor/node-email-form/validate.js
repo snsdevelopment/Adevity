@@ -1,10 +1,11 @@
 /**
 * PHP Email Form Validation - v3.6
-* URL: https://bootstrapmade.com/php-email-form/
+* URL: https://bootstrapmade.com/node-email-form/
 * Author: BootstrapMade.com
 */
+
 (function () {
-  const forms = document.querySelectorAll('.php-email-form');
+  const forms = document.querySelectorAll('.node-email-form');
 
   forms.forEach((e) => {
     e.addEventListener('submit', function (event) {
@@ -61,7 +62,7 @@
       })
       .then((data) => {
         thisForm.querySelector('.loading').classList.remove('d-block');
-        if (data.trim() == 'OK') {
+        if (JSON.parse(data.trim()) === 'OK') {
           thisForm.querySelector('.sent-message').classList.add('d-block');
           thisForm.reset();
         } else {
