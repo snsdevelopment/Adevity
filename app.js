@@ -23,6 +23,15 @@ server.use(express.static(`${__dirname}/public`));
 server.use(express.static(`${__dirname}/public/src`));
 server.use(express.static(`${__dirname}/public/assets`));
 
+server.all(/.*/, (req, res, next) => {
+  const host = req.header('host');
+  if (host.match(/^www\..*/i)) {
+    next();
+  } else {
+    res.redirect(301, `http://www.${host}`);
+  }
+});
+
 server.use(landing);
 server.listen(port, () => {
   console.log(`Listening on port ${port}.....`);
