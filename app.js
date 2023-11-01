@@ -23,14 +23,16 @@ server.use(express.static(`${__dirname}/public`));
 server.use(express.static(`${__dirname}/public/src`));
 server.use(express.static(`${__dirname}/public/assets`));
 
-server.all(/.*/, (req, res, next) => {
-  const host = req.header('host');
-  if (host.match(/^www\..*/i)) {
-    next();
-  } else {
-    res.redirect(301, `http://www.${host}`);
-  }
-});
+// This is useless because the request will not even get to this point
+// If naked domain is not setup in the DNS to point to heroku
+// server.all(/.*/, (req, res, next) => {
+//   const host = req.header('host');
+//   if (host.match(/^www\..*/i)) {
+//     next();
+//   } else {
+//     res.redirect(301, `https://www.${host}`);
+//   }
+// });
 
 server.use(landing);
 server.listen(port, () => {
