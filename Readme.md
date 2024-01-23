@@ -120,3 +120,7 @@ We are using the airbnb style guide. So please follow it. If you are using VSCod
 Remove error Expected linebreaks to be 'LF' but found 'CRLF' linebreak-style
 Adding  `linebreak-style": ["error", "windows"]` to eslint Config worked. 
 
+
+I forgot the meta tag in my header and the site info was not showing up properly. Once I added the meta tags I went to google console and requested indexing:
+
+![Alt text](image-1.png)
