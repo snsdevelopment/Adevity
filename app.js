@@ -34,6 +34,18 @@ server.use(express.static(`${__dirname}/public/assets`));
 //   }
 // });
 
+if (process.env.env.toUpperCase() === 'PRODUCTION') {
+  server.use((req, res, next) => {
+    if (req.secure) {
+      // request was via https, so do no special handling
+      next();
+    } else {
+      console.log('Unsecure request');
+      res.redirect(`https://${req.headers.host}${req.url}`);
+    }
+  });
+}
+
 server.use(landing);
 server.listen(port, () => {
   console.log(`Listening on port ${port}.....`);
