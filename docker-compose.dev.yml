@@ -1,0 +1,9 @@
+version: "3"
+services:
+  adevity-app:
+    volumes:
+      - .:/ADEVITY
+      - /ADEVITY/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev

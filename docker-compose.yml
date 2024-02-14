@@ -1,0 +1,9 @@
+version: "3"
+services:
+  adevity-app:
+    build: .
+    ports:
+      - "80:80"
+      - "9229:9229" # Debugging port
+    env_file:
+      - ./.env
