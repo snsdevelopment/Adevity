@@ -288,15 +288,3 @@
    */
   new PureCounter();
 }());
-
-document.getElementById('contactForm').addEventListener('submit', (event) => {
-  event.preventDefault();
-  grecaptcha.enterprise.ready(() => {
-    grecaptcha.enterprise.execute('6LetzmgqAAAAADLaoX1lVkRuF9HGX48OyVsLChQr', { action: 'submit' }).then((token) => {
-      // Add token to form
-      document.getElementById('g-recaptcha-response').value = token;
-      // Submit the form after token is added
-      document.getElementById('contactForm').submit();
-    });
-  });
-});
