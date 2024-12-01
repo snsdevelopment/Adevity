@@ -47,14 +47,19 @@ if (process.env.env.toUpperCase() === 'PRODUCTION') {
   });
 }
 
-server.use((req, res, next) => {
-  if (req.hostname.startsWith('floorplan.') || process.env.env.toUpperCase() === 'DEVELOPMENT') {
-    server.use('/', floorplan);
-  } else {
-    server.use('/', landing);
-  }
-  next();
-});
+// Remove the outer middleware and directly set up route handling
+if (process.env.env.toUpperCase() === 'DEVELOPMENT') {
+  server.use('/', floorplan);
+} else {
+  // Check hostname during request handling
+  server.use('/', (req, res, next) => {
+    if (req.hostname.startsWith('floorplan.')) {
+      floorplan(req, res, next);
+    } else {
+      landing(req, res, next);
+    }
+  });
+}
 server.listen(port, () => {
   console.log(`Listening on port ${port}.....`);
 });
