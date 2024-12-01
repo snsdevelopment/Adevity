@@ -1,14 +1,28 @@
 <%- include('../partials/header.ejs', {hideEverythingBesidesHome:false}) %>
+<section id="hero" class="hero d-flex align-items-center">
 
-<main id="main">
-  <section class="coming-soon d-flex align-items-center min-vh-100">
-    <div class="container text-center">
-      <h1 class="mb-4">Floor Plan Feature Coming Soon!</h1>
-      <p class="lead">We're working hard to bring you an amazing floor planning tool.</p>
-      <p>Stay tuned for updates!</p>
-      <a href="https://www.adevity.com" class="btn btn-primary mt-4">Return to Main Site</a>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">Professional 2D Floor Plan Services</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">Transform your architectural drawings into clean, professional floor plans.</p>
+            <p>Perfect for building management systems (BMS) integration, facility management, and space planning needs.</h2>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Get a quote</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="/assets/img/floorplan-sample-1.jpg" class="img-fluid" alt="" style="width: 80%;">
+        </div>
+      </div>
     </div>
+
   </section>
-</main>
+
 
 <%- include('../partials/footer.ejs') %>
