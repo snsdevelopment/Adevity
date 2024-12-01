@@ -7,6 +7,7 @@ const port = process.env.PORT;
 const server = express();
 const fileUpload = require('express-fileupload');
 const landing = require('./routes/landing');
+const floorplan = require('./routes/floorplan');
 
 server.use(express.json()); // Used to parse JSON bodies
 server.use(express.urlencoded({ extended: true }));
@@ -46,7 +47,14 @@ if (process.env.env.toUpperCase() === 'PRODUCTION') {
   });
 }
 
-server.use(landing);
+server.use((req, res, next) => {
+  if (req.hostname.startsWith('floorplan.') || process.env.env.toUpperCase() === 'DEVELOPMENT') {
+    server.use('/', floorplan);
+  } else {
+    server.use('/', landing);
+  }
+  next();
+});
 server.listen(port, () => {
   console.log(`Listening on port ${port}.....`);
 });
