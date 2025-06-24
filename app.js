@@ -8,6 +8,7 @@ const server = express();
 const fileUpload = require('express-fileupload');
 const landing = require('./routes/landing');
 const floorplan = require('./routes/floorplan');
+const supportGuide = require('./routes/supportGuide');
 
 server.use(express.json()); // Used to parse JSON bodies
 server.use(express.urlencoded({ extended: true }));
@@ -47,6 +48,8 @@ if (process.env.env.toUpperCase() === 'PRODUCTION') {
   });
 }
 
+server.use('/', supportGuide);
+
 // Remove the outer middleware and directly set up route handling
 if (process.env.env.toUpperCase() === 'DEVELOPMENT') {
   server.use('/', floorplan);
@@ -60,6 +63,14 @@ if (process.env.env.toUpperCase() === 'DEVELOPMENT') {
     }
   });
 }
+
+server.use('/', (req, res, next) => {
+  if (req.hostname.startsWith('floorplan.')) {
+    floorplan(req, res, next);
+  } else {
+    landing(req, res, next);
+  }
+});
 server.listen(port, () => {
   console.log(`Listening on port ${port}.....`);
 });

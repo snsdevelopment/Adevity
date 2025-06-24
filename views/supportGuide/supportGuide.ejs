@@ -1,0 +1,490 @@
+<%- include('../partials/header.ejs', {hideEverythingBesidesHome:true} )%>
+
+<section class="support-guide-section" style="padding: 80px 0 60px 0;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="support-guide-content">
+          
+          <!-- Header -->
+          <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-primary mb-3">Adevity Support Expectations Handbook</h1>
+            <p class="lead text-muted">Your comprehensive guide to our support services and expectations</p>
+          </div>
+
+          <!-- Purpose & Scope -->
+          <div class="section-card mb-5">
+            <h2 class="section-title" id="purpose-scope">1. Purpose & Scope</h2>
+            <div class="section-content">
+              <p>This guide defines the working relationship between Adevity and each client we serve. Its purpose is to make every support interaction or ongoing development predictable and efficient by clarifying:</p>
+              <ul class="custom-list">
+                <li><strong>What customers can expect from Adevity:</strong> quick response times, regular status updates, a clear escalation path, and full coverage of both your existing systems and the custom software solutions we design, build, and maintain.</li>
+                <li><strong>How development work gets prioritized:</strong> production issues that break your business get fixed first, ahead of enhancement requests or new features. The new development follows project plans and the release schedules we agree on together.</li>
+                <li><strong>What Adevity needs from customers:</strong> complete ticket descriptions (what's the problem or goal, how does it impact you, steps to reproduce issues, screenshots or logs), quick access to affected systems, and timely feedback when testing new features.</li>
+                <li><strong>Which services are included:</strong> any custom applications we've built for you; plus any off-the-shelf systems you're using. Cloud infrastructure we host or manage for you (databases, backups, security, deployment systems, storage system), plus standard devices that connect to these systems.</li>
+                <li><strong>Which services are not included:</strong> personal computers or software.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Audience -->
+          <div class="section-card mb-5">
+            <h2 class="section-title" id="audience">2. Audience</h2>
+            <div class="section-content">
+              <p>This handbook is intended for:</p>
+              <ul class="custom-list">
+                <li>Client employees and managers who report issues or request new features.</li>
+                <li>Adevity support and developers responsible for delivering fixes or enhancements.</li>
+                <li>Approved third party vendors or contractors who need access to client environments under Adevity's oversight.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Support Hours & Contact Channels -->
+          <div class="section-card mb-5">
+            <h2 class="section-title" id="support-hours">3. Support Hours & Contact Channels</h2>
+            
+            <h3 class="subsection-title">3.1 Standard Support Hours</h3>
+            <div class="section-content">
+              <ul class="custom-list">
+                <li>Monday – Friday, 7:00 AM – 5:00 PM Eastern Time (ET), excluding U.S. public holidays.</li>
+                <li>After hours coverage: critical incidents only (see Severity Matrix).</li>
+              </ul>
+            </div>
+
+            <h3 class="subsection-title">3.2 Contact Channels</h3>
+            <div class="section-content">
+              <div class="table-responsive">
+                <table class="table table-bordered support-table">
+                  <thead class="table-primary">
+                    <tr>
+                      <th>Channel</th>
+                      <th>How to use</th>
+                      <th>Notes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Email / Ticket Portal (preferred)</strong></td>
+                      <td>Send an email to support@adevity.com or click the gear icon (⚙) on your workstation to open the "Send Support Request" form; either method automatically logs a ticket.</td>
+                      <td>Best for all routine requests and bug reports.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Phone</strong></td>
+                      <td>Call 989 322 2000 during support hours or afterhours for critical incidents.</td>
+                      <td>If all IT Support staff are occupied, you can leave a voicemail or try calling back. We'll respond to voicemails as soon as possible.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Microsoft Teams</strong></td>
+                      <td>Adevity may set up a Teams meeting for screen‑sharing, demos, or group discussions after a ticket is open.</td>
+                      <td>Used for collaboration or demo only. Not our primary support channel</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="mt-3">Walk-in assistance is also available when technicians are available on site.</p>
+            </div>
+
+            <h3 class="subsection-title">3.3 Key Contacts</h3>
+            <div class="section-content">
+              <ul class="custom-list">
+                <li><strong>IT Support:</strong> Handles first-line assistance for IT issues, general inquiries and feature requests.</li>
+                <li><strong>On call Developer:</strong> Handles critical problems with your custom-built applications and urgent bug fixes. Developers go on-call after major releases. The on-call window depends on the size, scope, and criticality of the update.</li>
+                <li><strong>Project Manager:</strong> Handles project roadmaps and invoice questions or any matters that cannot be resolved by IT Support or Developer.</li>
+              </ul>
+              <p>All team members stay in sync through daily status updates and a weekly meeting.</p>
+            </div>
+          </div>
+
+          <!-- Severity Levels & Response Targets -->
+          <div class="section-card mb-5">
+            <h2 class="section-title" id="severity-levels">4. Severity Levels & Response Targets</h2>
+            <div class="section-content">
+              <p>This matrix defines how tickets are prioritized and the response / resolution timeframes you can expect. Times are measured within standard support hours.</p>
+              <div class="table-responsive">
+                <table class="table table-bordered severity-table">
+                  <thead class="table-dark">
+                    <tr>
+                      <th>Severity</th>
+                      <th>Description / Examples</th>
+                      <th>Initial Response</th>
+                      <th>Status Update</th>
+                      <th>Target Resolution*</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="table-danger">
+                      <td><strong>P1 - Critical</strong></td>
+                      <td>Production system down, data loss/corruption, security breach. Business is halted.</td>
+                      <td>1 hour (24×7)</td>
+                      <td>Every 1 hour</td>
+                      <td>4 hours or best possible workaround</td>
+                    </tr>
+                    <tr class="table-warning">
+                      <td><strong>P2 - High</strong></td>
+                      <td>Major functionality impaired with no immediate workaround; significant user impact.</td>
+                      <td>4 hours</td>
+                      <td>Every 4 hours</td>
+                      <td>2 business days</td>
+                    </tr>
+                    <tr class="table-info">
+                      <td><strong>P3 - Medium</strong></td>
+                      <td>Normal functionality issue with a temporary workaround; limited business impact.</td>
+                      <td>1 business day</td>
+                      <td>Daily</td>
+                      <td>5 business days</td>
+                    </tr>
+                    <tr class="table-light">
+                      <td><strong>P4 - Low / Enhancement</strong></td>
+                      <td>Cosmetic issues, feature requests, documentation updates.</td>
+                      <td>2 business days</td>
+                      <td>Weekly</td>
+                      <td>Scheduled in roadmap</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="mt-3"><em>*Resolution target = fix deployed or mutually agreed workaround. Complex issues may require an updated ETA after initial investigation.</em></p>
+            </div>
+          </div>
+
+          <!-- Ticket Submission Checklist -->
+          <div class="section-card mb-5">
+            <h2 class="section-title" id="ticket-submission">5. Ticket Submission Checklist</h2>
+            <div class="section-content">
+              <p>Submitting clear, complete information speeds up troubleshooting and reduces back and forth emails. Every ticket whether email, portal form, or phone follow up should include the following details:</p>
+              <ol class="custom-ordered-list">
+                <li><strong>Concise Subject Line</strong><br>
+                    One sentence summary of the issue or request.</li>
+                <li><strong>Detailed Description</strong><br>
+                    What happened? What did you expect to happen?<br>
+                    Business impact (e.g., "cannot ship orders," "one user affected").<br>
+                    Steps to reproduce, if known.</li>
+                <li><strong>Environment Details</strong><br>
+                    Application name / page URL.<br>
+                    Device or workstation ID and location.<br>
+                    Browser or software version.</li>
+                <li><strong>Evidence</strong><br>
+                    Screenshots, error messages, log files, or screen recordings.</li>
+                <li><strong>Severity Suggestion</strong><br>
+                    Your assessment (Critical, High, Medium, Low). Support will confirm or adjust.</li>
+                <li><strong>Contact Information</strong><br>
+                    Best phone number or Teams contact for follow up.</li>
+                <li><strong>Deadline / Business Deadline (for enhancements)</strong><br>
+                    If there is a hard date, note it here.</li>
+              </ol>
+              <div class="alert alert-info mt-3">
+                <strong>Tip:</strong> Incomplete tickets may be returned for more information, which can delay resolution.
+              </div>
+            </div>
+          </div>
+
+          <!-- Escalation & Communication Workflow -->
+          <div class="section-card mb-5">
+            <h2 class="section-title" id="escalation">6. Escalation & Communication Workflow</h2>
+            
+            <h3 class="subsection-title">6.1 Escalation Tiers</h3>
+            <div class="section-content">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead class="table-primary">
+                    <tr>
+                      <th>Tier</th>
+                      <th>Responsible Role</th>
+                      <th>Typical Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Tier 1</strong></td>
+                      <td>IT Support</td>
+                      <td>Initial investigation, basic troubleshooting, ticket ownership and updates.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Tier 2</strong></td>
+                      <td>On call Developer</td>
+                      <td>Technical investigation, code fixes, database repairs etc.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Tier 3</strong></td>
+                      <td>Project Manager</td>
+                      <td>Final escalation for unresolved issues, Financial and billing matters</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="subsection-title">6.2 Escalation Triggers</h3>
+            <div class="section-content">
+              <ul class="custom-list">
+                <li>Customer requests escalation.</li>
+                <li>Critical security or data loss risk identified.</li>
+                <li>Issue spans multiple systems or vendors.</li>
+              </ul>
+            </div>
+
+            <h3 class="subsection-title">6.3 Communication Protocol</h3>
+            <div class="section-content">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead class="table-primary">
+                    <tr>
+                      <th>Priority</th>
+                      <th>Who Communicates</th>
+                      <th>Method</th>
+                      <th>Frequency</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="table-danger">
+                      <td><strong>P1 - Critical</strong></td>
+                      <td>Assigned IT/Developer → customer & Project Manager</td>
+                      <td>Phone</td>
+                      <td>Hourly until workaround, then every 4 h</td>
+                    </tr>
+                    <tr class="table-warning">
+                      <td><strong>P2 - High</strong></td>
+                      <td>Assigned IT/Developer → customer</td>
+                      <td>Phone + email</td>
+                      <td>Every 4 h until resolution</td>
+                    </tr>
+                    <tr class="table-info">
+                      <td><strong>P3 - Medium</strong></td>
+                      <td>IT Support → customer</td>
+                      <td>Email</td>
+                      <td>Daily</td>
+                    </tr>
+                    <tr class="table-light">
+                      <td><strong>P4 - Low / Enhancement</strong></td>
+                      <td>IT Support → customer</td>
+                      <td>Email</td>
+                      <td>Weekly</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <h3 class="subsection-title">6.4 Ticket Closure</h3>
+            <div class="section-content">
+              <p>A ticket is closed when:</p>
+              <ol class="custom-ordered-list">
+                <li>The customer confirms the issue is resolved or accepts the workaround.</li>
+                <li>All fixed notes and testing steps are recorded in the ticket.</li>
+              </ol>
+              <p>If the customer does not respond within ten business days of the last update (ticket in waiting status), the ticket will be auto closed but can be re opened on request.</p>
+            </div>
+          </div>
+
+          <!-- Scheduled Maintenance & Change Management -->
+          <div class="section-card mb-5">
+            <h2 class="section-title" id="maintenance">7. Scheduled Maintenance & Change Management</h2>
+            
+            <h3 class="subsection-title">7.1 Planned maintenance Window</h3>
+            <div class="section-content">
+              <ul class="custom-list">
+                <li>Default window: Saturday and Sunday 8:00 AM – 12:00 PM ET.</li>
+                <li>Advance notice: at least 1 business day by email, including a summary of expected impact and rollback plan.</li>
+                <li>Typical activities: security patches, database upgrades, infrastructure reboots, routine performance tuning, off-the-shelf software upgrades</li>
+              </ul>
+              <p>If a different window is required for your business, notify the Project Manager. We will schedule a different time.</p>
+            </div>
+
+            <h3 class="subsection-title">7.2 Post change Verification & Rollback</h3>
+            <div class="section-content">
+              <ul class="custom-list">
+                <li>Smoke testing or user acceptance testing confirms success.</li>
+                <li>If issues arise, the predefined rollback plan is executed, and users are notified.</li>
+                <li>Lessons learned are documented and, if significant, shared in the next service review.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service Reporting & Review -->
+          <div class="section-card mb-5">
+            <h2 class="section-title" id="reporting">8. Service Reporting & Review</h2>
+            
+            <h3 class="subsection-title">8.1 Monthly Service Report</h3>
+            <div class="section-content">
+              <p>Delivered to client primary contacts with information that includes:</p>
+              <ul class="custom-list">
+                <li>Tickets resolved</li>
+                <li>Tickets opened</li>
+                <li>Upcoming planned work or projects.</li>
+                <li>Recurring issues if any with root cause notes.</li>
+              </ul>
+            </div>
+
+            <h3 class="subsection-title">8.2 Continuous Improvement Loop</h3>
+            <div class="section-content">
+              <ul class="custom-list">
+                <li>Progress is checked during Adevity's weekly internal sync and highlighted in the next monthly report.</li>
+                <li>Customers are kept in the loop for via summary of any progress or plans to improve or support their infrastructure</li>
+                <li>Items are closed once implemented and validated with the client.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .support-guide-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+    scroll-behavior: smooth;
+  }
+
+
+  .section-title {
+    scroll-margin-top: 100px; 
+  }
+
+  .support-guide-content {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 40px;
+    margin-bottom: 30px;
+  }
+
+  .section-card {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 30px;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+  }
+
+  .section-card:hover {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+
+  .section-title {
+    color: #2c5aa0;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #2c5aa0;
+    font-size: 1.8rem;
+    scroll-margin-top: 100px; /* Fix for navbar covering anchor links */
+  }
+
+  .subsection-title {
+    color: #495057;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+  }
+
+  .section-content {
+    color: #495057;
+    line-height: 1.7;
+    font-size: 1.05rem;
+  }
+
+  .custom-list {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .custom-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+  }
+
+  .custom-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .custom-ordered-list {
+    counter-reset: item;
+    padding-left: 0;
+  }
+
+  .custom-ordered-list li {
+    display: block;
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+  }
+
+  .custom-ordered-list li::before {
+    content: counter(item);
+    counter-increment: item;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #2c5aa0;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .support-table th {
+    background-color: #2c5aa0 !important;
+    color: white;
+    font-weight: 600;
+    border: none;
+  }
+
+  .support-table td {
+    vertical-align: middle;
+    border-color: #dee2e6;
+  }
+
+  .severity-table th {
+    background-color: #343a40 !important;
+    color: white;
+    font-weight: 600;
+  }
+
+  .severity-table td {
+    vertical-align: middle;
+  }
+
+  .alert-info {
+    background-color: #e7f3ff;
+    border-color: #b8daff;
+    color: #0c5460;
+  }
+
+  @media (max-width: 768px) {
+    .support-guide-content {
+      padding: 20px;
+    }
+    
+    .section-card {
+      padding: 20px;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+    }
+    
+    .subsection-title {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+<%- include('../partials/footer.ejs') %>
