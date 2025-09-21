@@ -64,3 +64,72 @@ exports.sendEmail = async function sendEmail(name, email, subject, message) {
     return false;
   }
 };
+
+exports.sendEmailWithMultipleAttachments = async function sendEmailWithMultipleAttachments(
+  subject,
+  message,
+  attachments,
+  recipientEmail = '',
+  ccEmails = '',
+) {
+  try {
+    const tenantID = keys.exchange.tenantId;
+    const oAuthClientID = keys.exchange.clientId;
+    const { clientSecret } = keys.exchange;
+    const userFrom = keys.exchange.sendFromEmail;
+    const { sendToEmail } = keys.exchange;
+
+    const toRecipientsArray = [];
+    toRecipientsArray.push({ emailAddress: { address: sendToEmail } });
+
+    const oAuthToken = await axios({
+      method: 'post',
+      url: `https://login.microsoftonline.com/${tenantID}/oauth2/token`,
+      data: new URLSearchParams({
+        client_id: oAuthClientID,
+        client_secret: clientSecret,
+        resource: 'https://graph.microsoft.com',
+        grant_type: 'client_credentials',
+      }).toString(),
+    });
+
+    const token = oAuthToken.data.access_token;
+
+    const formattedAttachments = attachments.map((attachment) => ({
+      '@odata.type': '#microsoft.graph.fileAttachment',
+      name: attachment.filename,
+      contentType: attachment.contentType,
+      contentBytes: attachment.content.toString('base64'),
+    }));
+
+    const msgPayload = {
+      message: {
+        subject,
+        body: {
+          contentType: 'HTML',
+          content: message,
+        },
+        toRecipients: toRecipientsArray,
+        attachments: formattedAttachments,
+      },
+    };
+
+    const axiosConfig = {
+      method: 'post',
+      url: `https://graph.microsoft.com/v1.0/users/${userFrom}/sendMail`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      data: msgPayload,
+    };
+
+    await axios(axiosConfig);
+
+    console.log('Email sent with attachments');
+    return true;
+  } catch (error) {
+    console.trace(error);
+    return false;
+  }
+};

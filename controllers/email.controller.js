@@ -35,8 +35,45 @@ exports.sendEmail = async (req, res) => {
       return res.status(400).json({ message: 'reCAPTCHA verification failed', error: recaptchaResponse.data['error-codes'] });
     }
 
-    // Proceed to send the email
-    const response = await emailServices.sendEmail(name, email, subject, message);
+    // Check if files were uploaded
+    let response;
+    // If user uploads ONE file: req.files.attachments is a single file object
+    // If user uploads MULTIPLE files: req.files.attachments is an array of file objects
+    if (req.files && req.files.attachments) {
+      // Is req.files.attachments already an array? → Use it as-is
+      // Is it a single file object? → Wrap it in an array [req.files.attachments]
+      const attachments = Array.isArray(req.files.attachments)
+        ? req.files.attachments
+        : [req.files.attachments];
+
+      // Prepare attachments array for the email service
+      // Creating a brand new object
+      // This creates a brand new array with brand new objects
+      // that only have the 3 properties we need.
+      // Which is what the service layer expects.
+      const formattedAttachments = attachments.map((file) => ({
+        filename: file.name,
+        content: file.data,
+        contentType: file.mimetype,
+      }));
+
+      // Format the message with sender info
+      const fullMessage = `<p><strong>From:</strong> ${name}<br>
+                          <strong>Email:</strong> ${email}<br><br>
+                          <strong>Message:</strong><br>
+                          ${message}</p>`;
+
+      // Use sendEmailWithMultipleAttachments if files exist
+      response = await emailServices.sendEmailWithMultipleAttachments(
+        subject,
+        fullMessage,
+        formattedAttachments,
+      );
+    } else {
+      // No attachments, use original sendEmail
+      response = await emailServices.sendEmail(name, email, subject, message);
+    }
+
     if (!response) {
       return res.status(500).json({ message: 'Error sending email' });
     }

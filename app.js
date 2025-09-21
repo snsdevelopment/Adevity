@@ -51,6 +51,8 @@ if (process.env.env.toUpperCase() === 'PRODUCTION') {
 server.use('/', supportGuide);
 
 // Remove the outer middleware and directly set up route handling
+// To view floorplan in development, set env=Development in .env file
+// To hide floorplan in development, set env=Development-NO-FLOORPLAN (OR ANYTHING) in .env file
 if (process.env.env.toUpperCase() === 'DEVELOPMENT') {
   server.use('/', floorplan);
 } else {
